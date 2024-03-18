@@ -1,47 +1,26 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+// COMPONENTE PRINCIPAL
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import BookCatalog from "./Components/BookCatalog";
+import BookForm from "./Components/BookForm";
+import BookTransaction from "./Components/BookTransaction";
+import Users from "./Components/Users";
 
-function App() {
-  const [books, setBooks] = useState([]);
-
-  // Función para obtener los libros del servidor
-  const getBooks = async () => {
-    try {
-      const response = await axios.get("http://localhost:8000/books");
-      console.log(response.data); // Verificar la respuesta del servidor en la consola
-      setBooks(response.data.result);
-    } catch (error) {
-      console.error("Error fetching books:", error);
-    }
+const App = () => {
+  const handleBookSubmit = (data) => {
+    // respuesta del envío del libro
+    console.log("Datos del libro enviado:", data);
   };
 
-  useEffect(() => {
-    getBooks(); // Llama a la función para obtener los libros cuando el componente se monta
-  }, []); // El segundo argumento del useEffect es un array vacío para asegurarse de que la función solo se ejecute una vez al montar el componente
+  // Define the routes
+  const router = createBrowserRouter([
+    { path: "/", element: <BookCatalog /> }, // ME MUESTRA TODOS LOS LIBROS EN EL CATALOGO 🤩
+    {path: "/bookform", element: <BookForm onBookSubmit={handleBookSubmit} />}, //CREAR LIBROS 🤩
+    { path: "/booktransaction", element: <BookTransaction /> }, //PRESTAMO DE LIBROS
+    { path: "/users/users", element: <Users /> }, //ME TRAE TODOS LOS USUARIOS 🤩
+    
+  ]);
 
-  return (
-    <>
-      <div className="container">
-        <h1>BOOK CATALOG</h1>
-        <ul>
-          {/* Mapea sobre el estado de los libros y muestra cada uno */}
-          {books &&
-            books.map((book) => (
-              <li key={book.id}>
-                <span>Title:</span> {book.title} <br />
-                <span>Author:</span> {book.author} <br />
-                <span>Description:</span> {book.description} <br />
-                <span>Publication Date:</span> {book.publication_date} <br />
-                <span>Publisher:</span> {book.publisher} <br />
-                <span>Number of Pages:</span> {book.num_pages} <br />
-                <span>Price:</span> {book.price} <br />
-                <span>Estado:</span> {book.estado}
-              </li>
-            ))}
-        </ul>
-      </div>
-    </>
-  );
-}
+  return <RouterProvider router={router} />;
+};
 
 export default App;
