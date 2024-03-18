@@ -15,7 +15,7 @@ const App = () => {
   const router = createBrowserRouter([
     { path: "/", element: <BookCatalog /> }, // ME MUESTRA TODOS LOS LIBROS EN EL CATALOGO 🤩
     {path: "/bookform", element: <BookForm onBookSubmit={handleBookSubmit} />}, //CREAR LIBROS 🤩
-    { path: "/booktransaction", element: <BookTransaction /> }, //PRESTAMO DE LIBROS
+    { path: "/booktransaction", element: <BookTransaction /> }, //PRESTAMO DE LIBROS 🤩
     { path: "/users/users", element: <Users /> }, //ME TRAE TODOS LOS USUARIOS 🤩
     
   ]);

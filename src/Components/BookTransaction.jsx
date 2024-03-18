@@ -25,7 +25,7 @@ const BookTransaction = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/book",
+        "http://localhost:8000/transaction/book",
         transaction
       );
       console.log(response.data); // Manejar la respuesta según sea necesario
