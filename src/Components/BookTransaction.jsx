@@ -2,10 +2,14 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const BookTransaction = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const initialBookId = queryParams.get('bookId');
   const [transaction, setTransaction] = useState({
-    book_id: "",
+    book_id: initialBookId || "",
     book_title: "",
     user_id: "",
     username: "",

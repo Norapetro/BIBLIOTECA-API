@@ -13,7 +13,7 @@ const BookDetails = ({ book }) => {
         <p className="card-text"><strong>Publisher:</strong> {book.publisher}</p>
         <p className="card-text"><strong>Number of Pages:</strong> {book.num_pages}</p>
         <p className="card-text"><strong>State:</strong> {book.state}</p>
-        <Link to="/booktransaction" className="btn btn-primary">Book Transaction</Link>
+        <Link to={`/booktransaction?bookId=${book.id}`} className="btn btn-primary">Book Transaction</Link>
       </div>
     </div>
   );
