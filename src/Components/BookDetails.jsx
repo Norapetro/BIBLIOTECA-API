@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const BookDetails = ({ book }) => {
   return (
@@ -13,7 +14,7 @@ const BookDetails = ({ book }) => {
         <p className="card-text"><strong>Number of Pages:</strong> {book.num_pages}</p>
         <p className="card-text"><strong>Price:</strong> {book.price}</p>
         <p className="card-text"><strong>State:</strong> {book.state}</p>
-        <a href="#" className="btn btn-primary">BookTransaction</a>
+        <Link to="/booktransaction" className="btn btn-primary">Book Transaction</Link>
       </div>
     </div>
   );
