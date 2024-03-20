@@ -8,9 +8,10 @@ const BookTransaction = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const initialBookId = queryParams.get('bookId');
+  const initialBookTitle = queryParams.get('bookTitle');
   const [transaction, setTransaction] = useState({
     book_id: initialBookId || "",
-    book_title: "",
+    book_title: initialBookTitle || "",
     user_id: "",
     username: "",
     date_transaction: "",

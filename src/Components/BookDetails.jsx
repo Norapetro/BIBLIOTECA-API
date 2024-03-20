@@ -6,6 +6,7 @@ const BookDetails = ({ book }) => {
     <div className="card">
       <img src=".AQUI VA LA IMAGEN DEL LIBRO." className="card-img-top" alt="Book Image" />
       <div className="card-body">
+      <h5 className="card-title">{book.title}</h5>
         <p className="card-text"><strong>Id:</strong> {book.id}</p>
         <p className="card-text"><strong>Author:</strong> {book.author}</p>
         <p className="card-text"><strong>Tematica:</strong> {book.tematica}</p>
@@ -13,7 +14,7 @@ const BookDetails = ({ book }) => {
         <p className="card-text"><strong>Publisher:</strong> {book.publisher}</p>
         <p className="card-text"><strong>Number of Pages:</strong> {book.num_pages}</p>
         <p className="card-text"><strong>State:</strong> {book.state}</p>
-        <Link to={`/booktransaction?bookId=${book.id}`} className="btn btn-primary">Book Transaction</Link>
+        <Link to={`/booktransaction?bookId=${book.id}&bookTitle=${encodeURIComponent(book.title)}`} className="btn btn-primary">Book Transaction</Link>
       </div>
     </div>
   );
@@ -23,6 +24,7 @@ const BookDetails = ({ book }) => {
 BookDetails.propTypes = {
   book: PropTypes.shape({
     id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     tematica: PropTypes.string.isRequired,
     publication_date: PropTypes.string.isRequired,
