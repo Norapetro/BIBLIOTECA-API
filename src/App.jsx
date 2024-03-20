@@ -18,7 +18,7 @@ const App = () => {
     {path: "/bookform", element: <BookForm onBookSubmit={handleBookSubmit} />}, //CREAR LIBROS 🤩
     { path: "/booktransaction", element: <BookTransaction /> }, //PRESTAMO DE LIBROS 🤩
     { path: "/users/users", element: <Users /> }, //ME TRAE TODOS LOS USUARIOS 🤩
-    { path: "/payment", element: <PaymentForm /> }, //ME TRAE TODOS LOS USUARIOS 🤩
+    { path: "/payment", element: <PaymentForm /> }, //PAGO 🤩
     
   ]);
 
