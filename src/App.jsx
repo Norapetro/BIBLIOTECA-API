@@ -1,5 +1,6 @@
 // COMPONENTE PRINCIPAL
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar";
 import BookCatalog from "./Components/BookCatalog";
 import BookForm from "./Components/BookForm";
 import BookTransaction from "./Components/BookTransaction";
@@ -12,17 +13,18 @@ const App = () => {
     console.log("Datos del libro enviado:", data);
   };
 
-  // Define the routes
-  const router = createBrowserRouter([
-    { path: "/", element: <BookCatalog /> }, // ME MUESTRA TODOS LOS LIBROS EN EL CATALOGO 🤩
-    {path: "/bookform", element: <BookForm onBookSubmit={handleBookSubmit} />}, //CREAR LIBROS 🤩
-    { path: "/booktransaction", element: <BookTransaction /> }, //PRESTAMO DE LIBROS 🤩
-    { path: "/users/users", element: <Users /> }, //ME TRAE TODOS LOS USUARIOS 🤩
-    { path: "/payment", element: <PaymentForm /> }, //PAGO 🤩
-    
-  ]);
-
-  return <RouterProvider router={router} />;
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<BookCatalog />} />
+        <Route path="/bookform" element={<BookForm onBookSubmit={handleBookSubmit} />} />
+        <Route path="/booktransaction" element={<BookTransaction />} />
+        <Route path="/users/users" element={<Users />} />
+        <Route path="/payment" element={<PaymentForm />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
