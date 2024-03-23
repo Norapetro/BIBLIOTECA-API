@@ -7,8 +7,9 @@ import { useLocation } from "react-router-dom";
 const BookTransaction = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const initialBookId = queryParams.get('bookId');
-  const initialBookTitle = queryParams.get('bookTitle');
+  const initialBookId = queryParams.get("bookId");
+  const initialBookTitle = queryParams.get("bookTitle");
+
   const [transaction, setTransaction] = useState({
     book_id: initialBookId || "",
     book_title: initialBookTitle || "",
@@ -16,16 +17,38 @@ const BookTransaction = () => {
     username: "",
     date_transaction: "",
     type_transaction: "",
+    book_state: "",
   });
+
+  const [alertMessage, setAlertMessage] = useState(""); // Estado para manejar el mensaje de alerta
+  const [successMessage, setSuccessMessage] = useState(""); 
 
   useEffect(() => {
     const currentDate = new Date().toISOString().slice(0, 10);
-    setTransaction(prevTransaction => ({
+    setTransaction((prevTransaction) => ({
       ...prevTransaction,
       date_transaction: currentDate,
     }));
-  }, []); // Dependencia vacía para que se ejecute solo una vez al montar el componente
-  
+  }, []);
+
+  useEffect(() => {
+    if (initialBookId) {
+      fetchBookState(initialBookId);
+    }
+  }, [initialBookId]); // Ejecutar cuando initialBookId cambie
+
+  const fetchBookState = async (bookId) => {
+    try {
+      const response = await axios.get(`http://localhost:8000/books/${bookId}`);
+      const bookState = response.data.state;
+      setTransaction((prevTransaction) => ({
+        ...prevTransaction,
+        book_state: bookState,
+      }));
+    } catch (error) {
+      console.error("Error fetching book state:", error);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,10 +61,33 @@ const BookTransaction = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Verificar si el tipo de transacción es devolución y el libro está en estado ACTIVE
+      if (
+        transaction.type_transaction === "devolucion" &&
+        transaction.book_state === "ACTIVE"
+      ) {
+        setAlertMessage(
+          "No se puede devolver un libro que no ha sido prestado."
+        );
+        return;
+      }
+
+      // Verificar si el tipo de transacción es préstamo y el libro está en estado BORROWED
+      if (
+        transaction.type_transaction === "prestamo" &&
+        transaction.book_state === "BORROWED"
+      ) {
+        setAlertMessage(
+          "El libro ya está en préstamo y no se puede prestar nuevamente hasta que sea devuelto."
+        );
+        return;
+      }
+
       const response = await axios.post(
         "http://localhost:8000/transaction/book",
         transaction
       );
+      setSuccessMessage("¡Transacción exitosa!");
       console.log(response.data); // Manejar la respuesta según sea necesario
     } catch (error) {
       console.error("Error creating book transaction:", error);
@@ -51,6 +97,10 @@ const BookTransaction = () => {
   return (
     <div>
       <h2>Book Transaction (Prestamo de Libros)</h2>
+      {alertMessage && <div style={{ color: "red" }}>{alertMessage}</div>}
+      {successMessage && (
+        <div style={{ color: "green" }}>{successMessage}</div>
+      )}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Book ID:</label>
@@ -109,6 +159,16 @@ const BookTransaction = () => {
             <option value="prestamo">Prestamo</option>
             <option value="devolucion">Devolucion</option>
           </select>
+        </div>
+        <div>
+          <label>Book State:</label>
+          <input
+            type="text"
+            name="book_state"
+            value={transaction.book_state}
+            onChange={handleChange}
+            readOnly 
+          />
         </div>
         <button type="submit">Send Transaction</button>
       </form>
