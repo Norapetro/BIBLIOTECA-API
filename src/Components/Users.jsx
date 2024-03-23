@@ -3,6 +3,7 @@ import axios from "axios";
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [formData, setFormData] = useState({
     id: 0, 
     cedula: "",
@@ -35,8 +36,8 @@ function Users() {
     e.preventDefault();
     try {
       await axios.post('http://localhost:8000/users/users/create', formData);
-      fetchUsers(); // Actualizar la lista de usuarios después de agregar uno nuevo
-      setFormData({ id: 0, cedula: "", username: "", email: "", phone: "", address: "" }); // Limpiar el formulario después de enviar
+      fetchUsers(); 
+      setFormData({ id: 0, cedula: "", username: "", email: "", phone: "", address: "" }); 
       setSuccessMessage("User created successfully.");
       setErrorMessage("");
     } catch (error) {
@@ -59,9 +60,13 @@ function Users() {
     }
   };
 
+  const handleUserClick = (user) => {
+    setSelectedUser(user);
+  };
+
   return (
     <div>
-      <h1>Users</h1>
+      <h1>Create Users</h1>
       {successMessage && <h1 style={{ color: "green" }}>{successMessage}</h1>}
       {errorMessage && <h1 style={{ color: "red" }}>{errorMessage}</h1>}
       <form onSubmit={handleSubmit}>
@@ -73,19 +78,27 @@ function Users() {
         <input type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
         <button type="submit">Create User</button>
       </form>
+      <br></br>
       <ul>
+      <h1>List Users</h1>
         {users.map((user) => (
-          <li key={user.id}>
-            <p>ID: {user.id}</p>
-            <p>Cedula: {user.cedula}</p>
+          <li key={user.id} onClick={() => handleUserClick(user)} style={{ cursor: "pointer" }}>
             <p>Username: {user.username}</p>
-            <p>Email: {user.email}</p>
-            <p>Phone: {user.phone}</p>
-            <p>Address: {user.address}</p>
-            <button onClick={() => handleDelete(user.id)}>Delete User</button>
           </li>
         ))}
       </ul>
+      {selectedUser && (
+        <div>
+          <h2>User Details</h2>
+          <p>ID: {selectedUser.id}</p>
+          <p>Cedula: {selectedUser.cedula}</p>
+          <p>Username: {selectedUser.username}</p>
+          <p>Email: {selectedUser.email}</p>
+          <p>Phone: {selectedUser.phone}</p>
+          <p>Address: {selectedUser.address}</p>
+          <button onClick={() => handleDelete(selectedUser.id)}>Delete User</button>
+        </div>
+      )}
     </div>
   );
 }
