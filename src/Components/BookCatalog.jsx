@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import BookDetails from './BookDetails'; 
+import "../styles/Catalog.css";
 
 const BookCatalog = () => {
   const [books, setBooks] = useState([]);
@@ -27,6 +28,19 @@ const BookCatalog = () => {
     setSelectedBook(book);
   };
 
+  // Función para eliminar un libro
+  const deleteBook = async (bookId) => {
+    try {
+      await axios.delete(`http://localhost:8000/books/delete/${bookId}`);
+      // Actualizar la lista de libros después de la eliminación
+      getBooks();
+      // Limpiar el libro seleccionado después de la eliminación
+      setSelectedBook(null);
+    } catch (error) {
+      console.error("Error deleting book:", error);
+    }
+  };
+
   return (
     <div className="container">
       <h1>BOOK CATALOG</h1>
@@ -37,7 +51,13 @@ const BookCatalog = () => {
               {book.title}
             </div>
             {/* Mostrar el detalle del libro seleccionado */}
-            {selectedBook && selectedBook.id === book.id && <BookDetails book={selectedBook} />}
+            {selectedBook && selectedBook.id === book.id && (
+              <div>
+                <BookDetails book={selectedBook} />
+                {/* Botón para eliminar el libro */}
+                <button onClick={() => deleteBook(selectedBook.id)}>Eliminar libro</button>
+              </div>
+            )}
           </li>
         ))}
       </ul>

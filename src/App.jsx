@@ -6,6 +6,7 @@ import BookForm from "./Components/BookForm";
 import BookTransaction from "./Components/BookTransaction";
 import Users from "./Components/Users";
 import PaymentForm from "./Components/PaymentForm";
+import "../src/styles/nav.css"
 
 const App = () => {
   const handleBookSubmit = (data) => {
