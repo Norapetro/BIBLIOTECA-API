@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const PaymentForm = () => {
@@ -7,14 +7,26 @@ const PaymentForm = () => {
     username: "",
     book_id: "",
     book_title: "",
-    payment_date: "",
+    payment_date: "", 
     amount: "",
     observation: "",
   });
 
+  useEffect(() => {
+    // Obtener la fecha actual en formato YYYY-MM-DD
+    const currentDate = new Date().toISOString().split("T")[0];
+    setFormData((prevData) => ({
+      ...prevData,
+      payment_date: currentDate,
+    }));
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {

@@ -1,8 +1,9 @@
 // AGREGAR LIBROS AL CATALOGO
 
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import "../styles/BookForm.css"
 
 const BookForm = ({ onBookSubmit }) => {
   const [title, setTitle] = useState('');
@@ -12,7 +13,13 @@ const BookForm = ({ onBookSubmit }) => {
   const [publisher, setPublisher] = useState('');
   const [numPages, setNumPages] = useState('');
   const [price, setPrice] = useState('');
-  const [estado, setEstado] = useState('');
+  const [estado, setEstado] = useState('ACTIVE');
+
+  useEffect(() => {
+    // Obtener la fecha actual en formato YYYY-MM-DD
+    const currentDate = new Date().toISOString().split('T')[0];
+    setPublicationDate(currentDate);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,7 +48,7 @@ const BookForm = ({ onBookSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form-container" onSubmit={handleSubmit}>
       <label>Título:</label>
       <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
 
