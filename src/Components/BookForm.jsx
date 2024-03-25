@@ -3,7 +3,6 @@
 import { useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import "../styles/BookForm.css"
 
 const BookForm = ({ onBookSubmit }) => {
   const [title, setTitle] = useState('');
@@ -39,6 +38,7 @@ const BookForm = ({ onBookSubmit }) => {
       const response = await axios.post('http://localhost:8000/books/create', bookData);
       if (typeof onBookSubmit === 'function') {
         onBookSubmit(response.data); // Llamar a la función proporcionada por el componente padre
+        alert('Libro creado satisfactoriamente');
       } else {
         console.error('onBookSubmit no es una función');
       }

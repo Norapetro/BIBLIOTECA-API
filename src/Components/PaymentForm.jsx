@@ -50,8 +50,8 @@ const PaymentForm = () => {
 
   return (
     <div>
-      <h1>Payment Form (Pago de Libro Prestado)</h1>
-      <form onSubmit={handleSubmit}>
+      <h1>Payment Book</h1>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label>User ID:</label>
         <input
           type="number"

@@ -96,12 +96,12 @@ const BookTransaction = () => {
 
   return (
     <div>
-      <h2>Book Transaction (Prestamo de Libros)</h2>
+      <h2>Book Transaction </h2>
       {alertMessage && <div style={{ color: "red" }}>{alertMessage}</div>}
       {successMessage && (
         <div style={{ color: "green" }}>{successMessage}</div>
       )}
-      <form onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleSubmit}>
         <div>
           <label>Book ID:</label>
           <input
@@ -159,16 +159,6 @@ const BookTransaction = () => {
             <option value="prestamo">Prestamo</option>
             <option value="devolucion">Devolucion</option>
           </select>
-        </div>
-        <div>
-          <label>Book State:</label>
-          <input
-            type="text"
-            name="book_state"
-            value={transaction.book_state}
-            onChange={handleChange}
-            readOnly 
-          />
         </div>
         <button type="submit">Send Transaction</button>
       </form>
