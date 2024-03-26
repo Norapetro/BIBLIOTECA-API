@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import BookDetails from './BookDetails'; 
+import "../Styles/BookCatalog.css"
 
 const BookCatalog = () => {
   const [books, setBooks] = useState([]);
@@ -82,19 +83,18 @@ const BookCatalog = () => {
       </form>
       <br />
       <p>{searchMessage}</p> {/* Mostrar mensaje de búsqueda */}
-      <ul>
+      <ul className="book-list-container">
         {filteredBooks.map((book) => (
-          <li key={book.id}>
-            <div onClick={() => handleBookSelect(book)}>
+          <li key={book.id} className="book-item">
+            <div onClick={() => handleBookSelect(book)} className="book-title">
               {book.title}
+            </div>
+            <div className="book-author">
+              Author: {book.author}
             </div>
             {/* Mostrar el detalle del libro seleccionado */}
             {selectedBook && selectedBook.id === book.id && (
-              <div>
-                <BookDetails book={selectedBook} />
-                {/* Botón para eliminar el libro */}
-                <button onClick={() => deleteBook(selectedBook.id)}>Eliminar libro</button>
-              </div>
+              <BookDetails book={selectedBook} onDelete={deleteBook} />
             )}
           </li>
         ))}

@@ -1,0 +1,56 @@
+/* BookCatalog.css */
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #5f7470; /* Color del texto */
+  }
+
+/* Estilo para el contenedor del listado de libros */
+.book-list-container {
+    padding: 20px;
+    border: 2px solid #6d6875;
+    border-radius: 10px;
+    background-color: #e7e6f7;
+  }
+  
+  /* Estilo para cada elemento de la lista de libros */
+  .book-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #bfdbf7;
+    border-radius: 5px;
+    background-color: #e3d0d8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para el título de cada libro */
+  .book-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ef8354;
+  }
+  
+  /* Estilo para el autor de cada libro */
+  .book-author {
+    font-size: 14px;
+    color: #463f3a;
+  }
+  /* Estilos para el botón de eliminar libro */
+.delete-button {
+    background-color: #90caf9; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 10px 20px; /* Espaciado interior del botón */
+    border-radius: 4px; /* Borde redondeado */
+    text-decoration: none; /* Quita el subrayado del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  

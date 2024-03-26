@@ -1,0 +1,51 @@
+/* BookDetails.css */
+
+.card {
+    background-color: #fae0e4; /* Color de fondo de la tarjeta */
+    border-radius: 8px; /* Borde redondeado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-bottom: 20px; /* Espaciado inferior */
+  }
+  
+  .card-img-top {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% de la tarjeta */
+    height: auto; /* Altura automática para mantener la proporción */
+    border-top-left-radius: 8px; /* Borde redondeado superior izquierdo */
+    border-top-right-radius: 8px; /* Borde redondeado superior derecho */
+  }
+  
+  .card-body {
+    padding: 20px; /* Espaciado interior del cuerpo de la tarjeta */
+    color: #7f5539;
+  }
+  
+  .card-title {
+    margin-bottom: 15px; /* Espaciado inferior para el título */
+    font-size: 1.5rem; /* Tamaño del título */
+    color: #7f5539;
+  }
+  
+  .card-text {
+    margin-bottom: 10px; /* Espaciado inferior para los textos */
+  }
+  
+  .btn-primary {
+    background-color: #90caf9; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 10px 20px; /* Espaciado interior del botón */
+    border-radius: 4px; /* Borde redondeado */
+    text-decoration: none; /* Quita el subrayado del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .btn-primary:hover {
+    background-color: #7de2d1; /* Cambia el color de fondo al pasar el mouse */
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

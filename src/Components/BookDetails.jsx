@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "../Styles/BookDetails.css";
 
-const BookDetails = ({ book }) => {
+const BookDetails = ({ book, onDelete }) => {
   return (
     <div className="card">
       <img
@@ -32,14 +33,19 @@ const BookDetails = ({ book }) => {
         <p className="card-text">
           <strong>State:</strong> {book.state}
         </p>
-        <Link
-          to={`/booktransaction?bookId=${
-            book.id
-          }&bookTitle=${encodeURIComponent(book.title)}`}
-          className="btn btn-primary"
-        >
-          Book Transaction
-        </Link>
+        <div className="buttons-container">
+          <Link
+            to={`/booktransaction?bookId=${book.id}&bookTitle=${encodeURIComponent(
+              book.title
+            )}`}
+            className="btn btn-primary"
+          >
+            Book Transaction
+          </Link>
+          <button className="btn btn-danger" onClick={() => onDelete(book.id)}>
+            Eliminar libro
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -57,6 +63,7 @@ BookDetails.propTypes = {
     num_pages: PropTypes.number.isRequired,
     state: PropTypes.string.isRequired,
   }).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default BookDetails;

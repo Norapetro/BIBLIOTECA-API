@@ -48,7 +48,7 @@ const BookForm = ({ onBookSubmit }) => {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+    <form className="form-container11" onSubmit={handleSubmit}>
       <label>Título:</label>
       <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
 
