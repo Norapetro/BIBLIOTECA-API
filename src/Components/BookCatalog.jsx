@@ -90,7 +90,7 @@ const BookCatalog = () => {
         <ul className="list-unstyled"> {/* Usamos list-unstyled para eliminar las viñetas de la lista */}
           {filteredBooks.map((book) => (
             <li key={book.id} className="book-item" onClick={() => handleBookSelect(book)}>
-              <i className="bi bi-book-half"></i> {/* Aquí agregamos el icono */}
+              <i className="bi bi-book-half icono"></i> {/* Aquí agregamos el icono */}
               <div className="book-title">
                 {book.title}
               </div>

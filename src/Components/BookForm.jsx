@@ -53,7 +53,9 @@ const BookForm = ({ onBookSubmit }) => {
 
   return (
     <div>
-      <h2><span style={{color: '#f4978e'}}>Create</span> <span style={{color: '#00afb9'}}>Book</span></h2>
+      <h2>
+       <i className="bi bi-pen"></i> {/* Icono de pluma */}
+        <span style={{color: '#f4978e'}}>Create</span> <span style={{color: '#00afb9'}}>Book</span></h2>
       <form className="form-container11" onSubmit={handleSubmit}>
       <label>Title:</label>
       <input
