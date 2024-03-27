@@ -1,5 +1,5 @@
 
-.page-title-container {
+.page-title-contenedor {
   text-align: center; /* Centrar el contenido */
   margin-bottom: 20px; /* Espacio inferior */
 }
@@ -16,11 +16,42 @@
 }
 
 /* Estilo para el contenedor del listado de libros */
-.book-list-container {
+.book-list-contenedor {
     padding: 20px;
     border: 2px solid #6d6875;
     border-radius: 10px;
     background-color: #e7e6f7;
+    flex: 1;
+    align-items: center;
+  }
+  
+  /* Estilos para el formulario de búsqueda */
+  .d-flex {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
+  }
+  
+  .form-control {
+    width: 300px; /* Ancho del campo de búsqueda */
+    margin-right: 10px; /* Espacio entre el campo de búsqueda y el botón */
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .btn-outline-success {
+    border-color: #00afb9; /* Color del borde */
+    color: #d687; /* Color del texto */
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #00afb9; /* Color de fondo al pasar el ratón */
+    color: #fff; /* Color del texto al pasar el ratón */
+  }
+  
+
+  .book-details-contenedor {
+    flex: 1;
+    padding: 20px;
   }
   
   /* Estilo para cada elemento de la lista de libros */
@@ -61,3 +92,11 @@
     background-color: #c82333;
   }
   
+  .contenedor {
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+  .form-control {
+    width: 70%;
+  }

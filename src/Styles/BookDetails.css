@@ -49,3 +49,11 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.book-details-contenedor {
+  flex: 1;
+  padding: 20px;
+  background-color: #e7e6f7; /* Color de fondo para la sección de detalles */
+  border: 2px solid #6d6875;
+  border-radius: 10px;
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "../Styles/PaymentForm.css";
 
 const PaymentForm = () => {
   const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ const PaymentForm = () => {
 
   return (
     <div>
-      <h1>Payment Book</h1>
+      <h1 className="centered-h2"><span style={{color: '#f4978e'}}>Payment</span> <span style={{color: '#00afb9'}}>Book</span></h1>
       <form className="form-container13" onSubmit={handleSubmit}>
         <label>User ID:</label>
         <input

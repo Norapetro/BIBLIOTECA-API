@@ -97,7 +97,7 @@ const BookTransaction = () => {
 
   return (
     <div>
-      <h2>Book Transaction </h2>
+      <h2><span style={{color: '#f4978e'}}>Book</span> <span style={{color: '#00afb9'}}>Transaction</span></h2>
       {alertMessage && <div style={{ color: "red" }}>{alertMessage}</div>}
       {successMessage && <div style={{ color: "green" }}>{successMessage}</div>}
       <form className="form-container12" onSubmit={handleSubmit}>

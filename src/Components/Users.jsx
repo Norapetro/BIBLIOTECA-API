@@ -73,11 +73,15 @@ function Users() {
   };
 
   return (
-    <div>
-      <h1>Create Users</h1>
-      {successMessage && <h1 style={{ color: "green" }}>{successMessage}</h1>}
-      {errorMessage && <h1 style={{ color: "red" }}>{errorMessage}</h1>}
-      <form onSubmit={handleSubmit}>
+    <div className="container">
+    <div className="left-panel">
+      <h1 className="title">
+        <span style={{ color: '#f4978e' }}>Create</span>{' '}
+        <span style={{ color: '#00afb9' }}>Users</span>
+      </h1>
+      {successMessage && <p className="success-message">{successMessage}</p>}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <form className="user-form" onSubmit={handleSubmit}>
         <input
           type="number"
           name="id"
@@ -128,44 +132,56 @@ function Users() {
         />
         <button type="submit">Create User</button>
       </form>
-      <br></br>
-      <ul>
-        <h1>List Users</h1>
+    </div>
+    <div className="right-panel">
+      <ul className="user-list">
+        <h1 className="title">
+          <span style={{ color: '#f4978e' }}>Users</span>{' '}
+          <span style={{ color: '#00afb9' }}>List</span>
+        </h1>
         {users.map((user) => (
           <li
             key={user.id}
             onClick={() => handleUserClick(user)}
-            style={{ cursor: "pointer" }}
+            className="user-list-item"
           >
             <p>Username: {user.username}</p>
           </li>
         ))}
       </ul>
-      {selectedUser && (
-        <div>
-          <h2>User Details</h2>
-          <p>ID: {selectedUser.id}</p>
-          <p>Identification: {selectedUser.identification}</p>
-          <p>Username: {selectedUser.username}</p>
-          <p>Email: {selectedUser.email}</p>
-          <p>Phone: {selectedUser.phone}</p>
-          <p>Address: {selectedUser.address}</p>
-          <button onClick={() => handleDelete(selectedUser.id)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-trash"
-              viewBox="0 0 16 16"
-            >
-              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-              <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-            </svg>{" "}
-          </button>
-        </div>
-      )}
     </div>
+    {selectedUser && (
+      <div className="user-details">
+        <h2 className="user-details-title">
+          <span style={{ color: '#f4978e' }}>User</span>{' '}
+          <span style={{ color: '#00afb9' }}>Details</span>
+        </h2>
+        <p>ID: {selectedUser.id}</p>
+        <p>Identification: {selectedUser.identification}</p>
+        <p>Username: {selectedUser.username}</p>
+        <p>Email: {selectedUser.email}</p>
+        <p>Phone: {selectedUser.phone}</p>
+        <p>Address: {selectedUser.address}</p>
+        <button onClick={() => handleDelete(selectedUser.id)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-trash"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+            />
+            <path
+              d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+            />
+          </svg>{' '}
+        </button>
+      </div>
+    )}
+  </div>  
   );
 }
 
