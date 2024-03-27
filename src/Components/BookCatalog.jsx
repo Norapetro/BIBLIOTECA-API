@@ -1,5 +1,3 @@
-// CATALOGO Y DETALLES DE LOS LIBROS
-
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import BookDetails from './BookDetails'; 
@@ -89,9 +87,10 @@ const BookCatalog = () => {
         </form>
         <br />
         <p>{searchMessage}</p> {/* Mostrar mensaje de búsqueda */}
-        <ul>
+        <ul className="list-unstyled"> {/* Usamos list-unstyled para eliminar las viñetas de la lista */}
           {filteredBooks.map((book) => (
             <li key={book.id} className="book-item" onClick={() => handleBookSelect(book)}>
+              <i className="bi bi-book-half"></i> {/* Aquí agregamos el icono */}
               <div className="book-title">
                 {book.title}
               </div>
