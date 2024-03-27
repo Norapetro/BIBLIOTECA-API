@@ -7,7 +7,7 @@ function Users() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [formData, setFormData] = useState({
     id: 0,
-    cedula: "",
+    identification: "",
     username: "",
     email: "",
     phone: "",
@@ -40,7 +40,7 @@ function Users() {
       fetchUsers();
       setFormData({
         id: 0,
-        cedula: "",
+        identification: "",
         username: "",
         email: "",
         phone: "",
@@ -88,10 +88,10 @@ function Users() {
         />
         <input
           type="text"
-          name="cedula"
-          value={formData.cedula}
+          name="identification"
+          value={formData.identification}
           onChange={handleChange}
-          placeholder="Cedula"
+          placeholder="Identification"
           required
         />
         <input
@@ -145,7 +145,7 @@ function Users() {
         <div>
           <h2>User Details</h2>
           <p>ID: {selectedUser.id}</p>
-          <p>Cedula: {selectedUser.cedula}</p>
+          <p>Identification: {selectedUser.identification}</p>
           <p>Username: {selectedUser.username}</p>
           <p>Email: {selectedUser.email}</p>
           <p>Phone: {selectedUser.phone}</p>

@@ -55,7 +55,7 @@ const BookForm = ({ onBookSubmit }) => {
     <div>
       <h2>Create Book</h2>
       <form className="form-container11" onSubmit={handleSubmit}>
-      <label>Título:</label>
+      <label>Title:</label>
       <input
         type="text"
         value={title}
@@ -76,7 +76,7 @@ const BookForm = ({ onBookSubmit }) => {
         onChange={(e) => setTematica(e.target.value)}
       />
 
-      <label>Fecha de publicación:</label>
+      <label>Publication date:</label>
       <input
         type="date"
         value={publicationDate}
@@ -90,28 +90,28 @@ const BookForm = ({ onBookSubmit }) => {
         onChange={(e) => setPublisher(e.target.value)}
       />
 
-      <label>Número de páginas:</label>
+      <label>Number of Pages:</label>
       <input
         type="text"
         value={numPages}
         onChange={(e) => setNumPages(e.target.value)}
       />
 
-      <label>Precio:</label>
+      <label>Price:</label>
       <input
         type="text"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
 
-      <label>Estado:</label>
+      <label>State:</label>
       <input
         type="text"
         value={estado}
         onChange={(e) => setEstado(e.target.value)}
       />
 
-      <button type="submit">Crear libro</button>
+      <button type="submit">Create Book</button>
     </form>
     </div>
   );
