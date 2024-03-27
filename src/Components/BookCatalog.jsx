@@ -66,7 +66,9 @@ const BookCatalog = () => {
 
   return (
     <div className="container">
-      <h1>BOOK CATALOG</h1>
+      <div className="page-title-container">
+       <h1 className="page-title">BOOK <span className="catalog-title">CATALOG</span></h1>
+      </div>
       <form className="d-flex" 
       onSubmit={(e) => { e.preventDefault(); 
       handleSearch(e.target.elements.search.value) }}>

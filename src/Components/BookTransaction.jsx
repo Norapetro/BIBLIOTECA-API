@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import "../Styles/BookTransaction.css";
 
 const BookTransaction = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const BookTransaction = () => {
   });
 
   const [alertMessage, setAlertMessage] = useState(""); // Estado para manejar el mensaje de alerta
-  const [successMessage, setSuccessMessage] = useState(""); 
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     const currentDate = new Date().toISOString().slice(0, 10);
@@ -98,9 +99,7 @@ const BookTransaction = () => {
     <div>
       <h2>Book Transaction </h2>
       {alertMessage && <div style={{ color: "red" }}>{alertMessage}</div>}
-      {successMessage && (
-        <div style={{ color: "green" }}>{successMessage}</div>
-      )}
+      {successMessage && <div style={{ color: "green" }}>{successMessage}</div>}
       <form className="form-container12" onSubmit={handleSubmit}>
         <div>
           <label>Book ID:</label>

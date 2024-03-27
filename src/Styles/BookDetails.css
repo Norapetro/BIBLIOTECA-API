@@ -1,7 +1,7 @@
 /* BookDetails.css */
 
 .card {
-    background-color: #fae0e4; /* Color de fondo de la tarjeta */
+    background-color: #f4f9e9; /* Color de fondo de la tarjeta */
     border-radius: 8px; /* Borde redondeado */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
     margin-bottom: 20px; /* Espaciado inferior */
@@ -22,7 +22,7 @@
   .card-title {
     margin-bottom: 15px; /* Espaciado inferior para el título */
     font-size: 1.5rem; /* Tamaño del título */
-    color: #7f5539;
+    color: #70a9a1;
   }
   
   .card-text {
@@ -30,7 +30,7 @@
   }
   
   .btn-primary {
-    background-color: #90caf9; /* Color de fondo del botón */
+    background-color: #00afb9; /* Color de fondo del botón */
     color: #fff; /* Color del texto del botón */
     border: none; /* Quita el borde del botón */
     padding: 10px 20px; /* Espaciado interior del botón */

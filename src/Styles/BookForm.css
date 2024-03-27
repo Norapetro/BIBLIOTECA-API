@@ -1,0 +1,37 @@
+/* Estilos para el formulario de agregar libros */
+
+.form-container11 {
+    max-width: 600px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    padding: 20px; /* Espaciado interior del formulario */
+    border: 1px solid #ccc; /* Borde del formulario */
+    border-radius: 8px; /* Borde redondeado */
+  }
+  
+  .form-container11 label {
+    display: block; /* Hace que cada etiqueta ocupe una línea */
+  }
+  
+  .form-container11 input[type="text"],
+  .form-container11 input[type="date"] {
+    width: 100%; /* Ancho completo para los campos de texto */
+    margin-bottom: 15px; /* Espaciado inferior entre campos */
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 4px; /* Borde redondeado */
+  }
+  
+  .form-container11 button[type="submit"] {
+    width: 100%; /* Ancho completo para el botón */
+    padding: 10px; /* Espaciado interior del botón */
+    background-color: #00afb9; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Quita el borde del botón */
+    border-radius: 4px; /* Borde redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .form-container11 button[type="submit"]:hover {
+    background-color: #7de2d1; /* Cambia el color de fondo al pasar el mouse */
+  }
+  

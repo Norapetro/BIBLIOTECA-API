@@ -1,12 +1,19 @@
-/* BookCatalog.css */
 
-h1 {
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #5f7470; /* Color del texto */
-  }
+.page-title-container {
+  text-align: center; /* Centrar el contenido */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Estilo para el título de la página */
+.page-title {
+  font-size: 32px; /* Tamaño del texto */
+  font-weight: bold; /* Peso de la fuente */
+  color: #f4978e; /* Color del texto */
+}
+
+.catalog-title {
+  color: #00afb9; /* Color del texto */
+}
 
 /* Estilo para el contenedor del listado de libros */
 .book-list-container {
@@ -20,9 +27,9 @@ h1 {
   .book-item {
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #bfdbf7;
+    border: 1px solid #caf0f8;
     border-radius: 5px;
-    background-color: #e3d0d8;
+    background-color: #edede9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -30,7 +37,7 @@ h1 {
   .book-title {
     font-size: 18px;
     font-weight: bold;
-    color: #ef8354;
+    color: #a3b18a;
   }
   
   /* Estilo para el autor de cada libro */

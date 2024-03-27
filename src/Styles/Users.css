@@ -1,0 +1,61 @@
+/* Estilos para el formulario de creación de usuarios */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-container input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para la lista de usuarios */
+  .list-container {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .list-container li {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para los detalles del usuario */
+  .user-details {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .user-details p {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para los mensajes de éxito y error */
+  .message {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .message.success {
+    color: green;
+  }
+  
+  .message.error {
+    color: red;
+  }
+  

@@ -1,0 +1,33 @@
+/* Navbar.css */
+
+/* Estilo para el texto del navbar */
+.navbar-brand {
+    color: #7dcfb6; /* Color del texto */
+    font-size: 24px; /* Tamaño del texto */
+    font-weight: bold;
+    padding: 0; 
+  }
+  .navbar-brand:hover {
+    color: #f4978e; /* Cambia el color del texto al pasar el mouse */
+  }
+  .first-part {
+    color: #00afb9; 
+  }
+  
+  /* Estilo para los enlaces del navbar */
+  .navbar-nav .nav-link {
+    color: #0081a7; /* Color del texto */
+    font-size: 18px; /* Tamaño del texto */
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #003566; /* Cambia el color del texto al pasar el mouse */
+  }
+  
+  .navbar-logo {
+    width: 50px; /* Ajusta el ancho de la imagen según sea necesario */
+    height: auto; /* Altura automática para mantener la proporción */
+    border-radius: 5px;
+  }
+  
